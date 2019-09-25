@@ -1,0 +1,9 @@
+.timerContainer {
+  background: pink;
+  padding: 10px;
+  border: 2px solid;
+  border-radius: 10px;
+  font-weight: 900;
+  font-size: 120px;
+  text-align: center;
+}

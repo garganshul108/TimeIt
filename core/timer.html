@@ -1,0 +1,74 @@
+<html>
+  <head>
+    <style rel="stylesheet" href="./timer.css" type="text/css"></style>
+    <style>
+      .timerContainer {
+        text-align: center;
+      }
+      .timer {
+        background: white;
+        padding: 5px 10px;
+        border: 2px solid;
+        border-radius: 10px;
+        font-weight: 900;
+        font-size: 50px;
+        text-align: center;
+        cursor: pointer;
+        outline: blue;
+      }
+      .timer:hover {
+        background: lightgreen;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="timerContainer">
+      <button class="timer" onclick="setStartTime()">
+        <span class="timerElement" id="hrs">00</span>
+        :
+        <span class="timerElement" id="mins">00</span>
+        :
+        <span class="timerElement" id="secs">00</span>
+      </button>
+    </div>
+    <script type="text/javascript">
+      console.log("internal script running");
+
+      function formatTime(a) {
+        a = a.toString();
+        if (a.length < 2) {
+          a = "0" + a;
+        }
+
+        return a;
+      }
+
+      startTime = 0;
+
+      function setStartTime() {
+        console.log("startTimeSet");
+        startTime = new Date().getTime();
+      }
+
+      function changeTime() {
+        console.log("now time set");
+        let now = new Date().getTime();
+        let diff = now - startTime;
+        diff = diff / 1000;
+        let h = Math.floor(diff / (60 * 60));
+        let m = Math.floor((diff - h * (60 * 60)) / 60);
+        let s = Math.floor(diff - m * 60);
+        h = formatTime(h);
+        m = formatTime(m);
+        s = formatTime(s);
+        document.getElementById("hrs").innerHTML = h;
+        document.getElementById("mins").innerHTML = m;
+        document.getElementById("secs").innerHTML = s;
+      }
+
+      setStartTime();
+      setInterval(changeTime, 1000);
+    </script>
+  </body>
+</html>

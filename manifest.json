@@ -1,0 +1,21 @@
+{
+  "manifest_version": 2,
+  "name": "TimeIt Extension",
+  "version": "0.0.1",
+
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+
+      "js": ["./core/run.js"]
+    }
+  ],
+
+  "browser_action": {
+    "default_icon": "./utils/icons/timeItIcon.png"
+  },
+
+  "permissions": ["webNavigation", "*://*/*", "https://*/*"]
+}
