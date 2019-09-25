@@ -7,7 +7,18 @@
 
   "content_scripts": [
     {
-      "matches": ["http://*/*", "https://*/*"],
+      "matches": [
+        "https://codeforces.com/*",
+        "https://www.codechef.com/*",
+        "https://www.hackerrank.com/*",
+        "https://www.hackerearth.com/*",
+        "https://leetcode.com/*",
+        "http://codeforces.com/*",
+        "http://www.codechef.com/*",
+        "http://www.hackerrank.com/*",
+        "http://www.hackerearth.com/*",
+        "http://leetcode.com/*"
+      ],
 
       "js": ["./core/run.js"]
     }
